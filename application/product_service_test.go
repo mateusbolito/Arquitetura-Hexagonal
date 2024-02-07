@@ -13,7 +13,7 @@ func TestProductService_Get(t *testing.T) {
 	defer ctrl.Finish()
 	product := gomock.NewController(ctrl.T)
 	persistence := gomock.NewController(ctrl.T)
-	persistence.EXPECT().Call().Return(product, nil).AnyTimes()
+	persistence.T().Call().Return(product, nil).AnyTimes()
 	service := application.ProductService{Persistence: persistence}
 
 	result, err := service.Get("abc")
